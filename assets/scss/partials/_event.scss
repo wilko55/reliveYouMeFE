@@ -1,0 +1,23 @@
+.event {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.event__header {
+    font-size: 1.5em;
+    margin: 0.7em 0 0.3em 0;
+    font-weight: 400;
+    border-bottom: solid $yellow;
+    width: 50%;
+}
+
+.event__back-button {
+    margin-top: 3em;
+    padding: 1em 2em;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: $strong-green;
+    font-weight: 600;
+    color: $white;
+    cursor: pointer;
+}

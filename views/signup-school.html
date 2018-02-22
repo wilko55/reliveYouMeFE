@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="login-form">
+            <div class="login-form__card login-form__card--large">
+                <h1>School signup</h1>
+                {{#err}}<div class="login-form__error-message">Error creating new profile, please try again</div>{{/err}}
+                <form method="POST" action="/signup-school">
+                    <div class="form-group">
+                        <label htmlFor="schoolName" hidden>School name</label>
+                        <input class="login-form__input" name="schoolName" id="schoolName" type="text" placeholder="School name"/>
+                    </div>
+                    <div class="form-group">
+                        <label htmlFor="contactName" hidden>Contact name</label>
+                        <input class="login-form__input" name="contactName" id="contactName" type="text" placeholder="Contact name"/>
+                    </div>
+                    <div class="form-group">
+                        <label htmlFor="email" hidden>Email</label>
+                        <input class="login-form__input" name="email" id="email" type="email" placeholder="Email"/>
+                    </div>
+                    <div class="form-group">
+                        <label htmlFor="phoneNumber" hidden>Phone number</label>
+                        <input class="login-form__input" name="phoneNumber" id="phoneNumber" type="text" placeholder="Phone number"/>
+                    </div>
+                    <div class="form-group">
+                        <label htmlFor="password" hidden>Password</label>
+                        <input class="login-form__input" name="password" id="password" type="password" placeholder="Password"/>
+                    </div>
+                    <button class="login-form__submit"
+                        type="submit">
+                        Sign up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

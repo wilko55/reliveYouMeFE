@@ -1,0 +1,83 @@
+{{< layout}}
+  {{$content}}
+    <style>
+        
+    </style>
+    <div class="profile-grid">
+        <div class="profile-grid__photo">
+            <img class="profile-grid__photo" src="images/profile-pic.png">
+        </div>
+        <div class="profile-grid__info">
+            <h1 class="profile-grid__page-title">{{user.name}}</h1>
+            <!-- <span class="info__location">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                Christchurch
+            </span> -->
+            <a href="/edit-profile"><button class="profile-grid__edit-button">Edit Profile</button></a>
+            <div class="profile-grid__job-title">{{user.jobTitle}}</div>
+            <div class="details-grid">
+                    <div class="details-grid__label">Time teaching:</div>
+                    <div class="details-grid__value">{{user.dateQualified}}</div>
+                    <div class="details-grid__label">Qualification:</div>
+                    <div class="details-grid__value">{{user.qualification}}</div>
+                    <div class="details-grid__label">Preferred age range:</div>
+                    <div class="details-grid__value">
+                        {{#user.ageRange}}
+                            <span class="details-grid__highlight-box details-grid__highlight-box--yellow">{{.}}</span>
+                        {{/user.ageRange}}
+                    </div>
+                    <div class="details-grid__label">Specialist subjects:</div>
+                    <div class="details-grid__value">
+                        {{#user.specialistSubjects}}
+                            <span class="details-grid__highlight-box details-grid__highlight-box--red">{{.}}</span>
+                        {{/user.specialistSubjects}}
+                    </div>
+                    <div class="details-grid__label">Additional skills:</div>
+                    <div class="details-grid__value">
+                        {{#user.additionalSkills}}
+                            <span class="details-grid__highlight-box details-grid__highlight-box--blue">{{.}}</span>
+                        {{/user.additionalSkills}}
+                    </div>
+                    <div class="details-grid__label">Areas covered:</div>
+                    <div class="details-grid__value">
+                        {{#user.areasCovered}}
+                            <span class="details-grid__highlight-box details-grid__highlight-box--green">{{.}}</span>
+                        {{/user.areasCovered}}
+                    </div>
+                </div>
+        </div>
+
+        <div class="profile-grid__work">
+            <h2 class="profile-grid__section-title">Experience</h2>
+            <div class="experience">
+                {{#user.experience}}
+                    <div class="experience__container">
+                        <h3 class="experience__school">{{school}}</h3>
+                        <div class="experience__roll">{{role}}</div>
+                        <div class="experience__address">{{address.line1}}, {{address.line2}}, {{address.line3}} {{address.postcode}}</div>
+                        <div class="experience__date">{{startDate}} - {{endDate}}</div>
+                    </div>
+                {{/user.experience}}
+            </div>
+        </div>
+
+        <div class="profile-grid__about">
+            <h2 class="profile-grid__section-title">About</h2>
+            <p>{{user.about}}</p>
+        </div>
+
+        <div class="profile-grid__contact">
+            <h2 class="profile-grid__section-title">Contact information</h2>
+            <div class="details-grid">
+                <div class="details-grid__label">Phone:</div>
+                <div class="details-grid__value">{{user.phoneNumber}}</div>
+                <div class="details-grid__label">Email:</div>
+                <div class="details-grid__value">{{user.email}}</div>
+                <div class="details-grid__label">Address:</div>
+                <div class="details-grid__value">{{user.address.line1}}, {{user.address.line2}}, {{user.address.line3}}, {{user.address.postcode}}</div>
+            </div>
+        </div>
+    </div>
+  {{/content}}
+{{/layout}}
+  

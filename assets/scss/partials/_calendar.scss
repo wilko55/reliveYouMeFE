@@ -1,0 +1,114 @@
+.calendar {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:visited {
+        text-decoration: none;
+        color: black;        
+    }
+    
+    a:hover {
+        text-decoration: none;
+        .day__day-num {
+          text-decoration: underline;
+        }
+    }
+    
+    a:active {
+        text-decoration: none;
+    } 
+  }
+
+  .calendar__h1--inline-block {
+    display: inline-block;
+    margin: 0 0 0.5em 0;
+  }
+
+  .calendar__day {
+    height: 10em;
+    background-color: #f7f7f7;
+    text-decoration: none;
+  }
+  .calendar__day--free {
+    background-color: $light-green;
+  }
+  .calendar__day--morning {
+    background-color: $light-yellow;
+  }
+  .calendar__day--afternoon {
+    background-color: $light-blue;
+  }
+  .calendar__day--full {
+    background-color: $light-red;
+  }
+  .calendar__day--unavailable {
+    background-color: lightgrey;
+  }
+  .calendar__day--placeholder {
+    color: lightgrey;
+    background-color: #f7f7f7;
+  }
+  .calendar__day--today {
+    border-top: solid 0.5em;
+    height: 9.5em;
+  }
+  .day__day-num {
+    font-size: 2em;
+    font-weight: 800;
+    margin-left: 0.2em;
+    display: inline;
+  }
+  
+  .day__time {
+    text-align: right;
+    padding: 0.5em 0.5em 0 0;
+    font-weight: 400;
+  }
+  
+  .calendar-header {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .calendar-header__title {
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  .day__date-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .day-info__availability {
+    text-align: center;
+    padding-top: 2em;
+  }
+  
+  .day-info__school {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+
+  .calendar__day--edit {
+    cursor: pointer;
+  }
+
+  .calendar__key-container {
+    list-style: none;
+    padding: 0;
+  }
+
+  .calendar__key {
+    display: inline-block;
+    padding: 0.5em;
+    border-radius: 5px;
+    font-weight: 500;
+  }

@@ -1,0 +1,46 @@
+{{< layout}}
+  {{$content}}
+    <h1>Feburuary 2018</h1>
+    <div class="calendar-header">
+        {{#days}}
+            <div class="calendar-header__title">{{.}}</div>
+        {{/days}}
+    </div>
+    <div class="calendar">
+        {{#calendarData}}
+        {{#event.id}}<a class="calendar__link" href="event/{{event.id}}">{{/event.id}}
+            <div class="calendar__day
+            {{#date.placeholder}}calendar__day--placeholder{{/date.placeholder}} 
+            {{#availability.free}}calendar__day--free{{/availability.free}}
+            {{#availability.morning}}calendar__day--morning{{/availability.morning}}
+            {{#availability.afternoon}}calendar__day--afternoon{{/availability.afternoon}}
+            {{#availability.full}}calendar__day--full{{/availability.full}}
+            {{#availability.unavailable}}calendar__day--unavailable{{/availability.unavailable}}
+            {{#date.today}}calendar__day--today{{/date.today}}
+            ">
+                <div class="day__date-wrapper">
+                    <div class="day__day-num">{{date.day-num}}</div>
+                    <div class="day__time">{{event.time}}
+                        {{#availability.unavailable}}Unavailable{{/availability.unavailable}}
+                        {{#availability.free}}Available{{/availability.free}}</div>
+                </div>
+                <div class="day-info">
+                    <div class="day-info__school">{{event.school}}</div>
+                    <div class="day-info__detail">{{event.year}}</div>
+                    <div class="day-info__detail">{{event.role}}</div>
+                </div>
+                
+            </div>
+        {{#event.id}}</a>{{/event.id}}
+        {{/calendarData}}
+    </div>
+
+    <script>
+        function viewDay(time, school, address) {
+            alert(time, school, address)
+        }
+    </script>
+
+  {{/content}}
+{{/layout}}
+  

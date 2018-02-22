@@ -1,0 +1,51 @@
+{{< layout}}
+  {{$content}}
+    <style>
+        
+    </style>
+    <div class="profile-grid">
+        <div class="profile-grid__photo">
+            <img class="profile-grid__photo" src="images/school-pic.jpg">
+        </div>
+        <form action="edit-school" method="POST">
+            <div class="profile-grid__info">
+                <h1 class="profile-grid__page-title">{{user.school}}</h1>
+                <button type="submit" class="profile-grid__save-button">Save Profile</button>
+
+                <h2 class="profile-grid__section-title">About your school:</h2>
+                <div class="edit-profile__grid">
+                    <label class="edit-profile__label" for="addressLine1">Address line 1:</label>
+                    <input class="edit-profile__text-input" id="addressLine1" type="text" name="addressLine1" value="{{user.address.line1}}">
+                    <label class="edit-profile__label" for="addressLine2">Address line 2:</label>
+                    <input class="edit-profile__text-input" id="addressLine2" type="text" name="addressLine2" value="{{user.address.line2}}">
+                    <label class="edit-profile__label" for="addressLine3">Address line 3:</label>
+                    <input class="edit-profile__text-input" id="addressLine3" type="text" name="addressLine3" value="{{user.address.line3}}">
+                    <label class="edit-profile__label" for="postcode">Postcode:</label>
+                    <input class="edit-profile__text-input" id="postcode" type="text" name="postcode" value="{{user.address.postcode}}">
+
+
+                    <label class="edit-profile__label" for="about">Description:</label>
+                    <textarea class="edit-profile__text-area" id="about" type="textarea" name="about">{{user.about}}</textarea>
+                </div>
+
+                <h2 class="profile-grid__section-title">Primary school contact</h2>
+                <div class="edit-profile__grid">
+
+                    <label class="edit-profile__label" for="contactName">Name:</label>
+                    <input class="edit-profile__text-input" id="contactName" type="text" name="contactName" value="{{user.contact.name}}">
+
+                    <label class="edit-profile__label" for="contactEmail">Email:</label>
+                    <input class="edit-profile__text-input" id="contactEmail" type="text" name="contactEmail" value="{{user.contact.email}}">
+
+                    <label class="edit-profile__label" for="contactPhoneNumber">Phone number:</label>
+                    <input class="edit-profile__text-input" id="contactPhoneNumber" type="text" name="contactPhoneNumber" value="{{user.contact.phoneNumber}}">
+                </div>
+
+               
+            </div>
+        </form>
+       
+    </div>
+  {{/content}}
+{{/layout}}
+  

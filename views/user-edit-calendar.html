@@ -1,0 +1,69 @@
+{{< layout}}
+  {{$content}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <h1 class="calendar__h1--inline-block">Feburuary 2018</h1>
+  <button onclick="save()" class="profile-grid__edit-button">Update calendar</button>
+  <div>
+    <p>Click on a day to toggle availability.<br>
+        You can't alter days you are scheduled to work - contact the school directly.</p>
+    <ul class="calendar__key-container">
+        <li class="calendar__key calendar__day--free">Available</li>
+        <li class="calendar__key calendar__day--unavailable">Unavailable</li>
+        <li class="calendar__key calendar__day--full">Booked full day</li>
+        <li class="calendar__key calendar__day--morning">Booked morning</li>
+        <li class="calendar__key calendar__day--afternoon">Booked Afternoon</li>
+    </ul>
+  </div>
+    <div class="calendar-header">
+        {{#days}}
+            <div class="calendar-header__title">{{.}}</div>
+        {{/days}}
+    </div>
+    <div class="calendar">
+        {{#calendarData}}
+            <div onclick="updateDay(this, {{date.day-num}})" id="day-{{date.day-num}}" class="calendar__day
+            {{#date.placeholder}}calendar__day--placeholder{{/date.placeholder}} 
+            {{#availability.free}}calendar__day--edit calendar__day--free{{/availability.free}}
+            {{#availability.morning}}calendar__day--morning{{/availability.morning}}
+            {{#availability.afternoon}}calendar__day--afternoon{{/availability.afternoon}}
+            {{#availability.full}}calendar__day--full{{/availability.full}}
+            {{#availability.unavailable}}calendar__day--edit calendar__day--unavailable{{/availability.unavailable}}
+            {{#date.today}}calendar__day--today{{/date.today}}
+            ">
+                <div class="day__date-wrapper">
+                    <div class="day__day-num">{{date.day-num}}</div>
+                    
+                </div>
+               
+            </div>
+        {{/calendarData}}
+    </div>
+
+    <script>
+        var availability = {};
+
+        function updateDay(e, day) {
+            if (e.classList.contains('calendar__day--free')) {
+                availability[e.id] = false;
+                e.classList.remove('calendar__day--free');
+                e.classList.add('calendar__day--unavailable');
+            } else if (e.classList.contains('calendar__day--unavailable')) {
+                availability[e.id] = true;
+                e.classList.add('calendar__day--free');
+                e.classList.remove('calendar__day--unavailable');
+            }
+        }
+
+        function save() {
+            axios.post('/edit-calendar', availability)
+            .then(function (response) {
+                window.location.replace('/calendar');
+            })
+            .catch(function (error) {
+            });
+        }
+    </script>
+
+  {{/content}}
+{{/layout}}
+  

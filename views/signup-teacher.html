@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="login-form">
+            <div class="login-form__card login-form__card--large">
+                <h1>Teacher signup</h1>
+                {{#err}}<div class="login-form__error-message">Teacher registration not found</div>{{/err}}
+                <form method="POST" action="/signup-teacher">
+                    <div class="form-group">
+                        <label for="first-name" hidden>First name</label>
+                        <input class="login-form__input" name="first-name" id="first-name" type="text" placeholder="First name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name" hidden>Last name</label>
+                        <input class="login-form__input" name="last-name" id="last-name" type="text" placeholder="Last name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-number" hidden>Teacher registration number</label>
+                        <input class="login-form__input" name="reg-number" id="reg-number" type="text" placeholder="Teacher registration number"/>
+                    </div>
+                    <button class="login-form__submit"
+                        type="submit">
+                        Verify registration
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

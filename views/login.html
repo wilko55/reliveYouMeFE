@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <div class="login-form">
+                <div class="login-form__card login-form__card--small">
+                    <h1>Login</h1>
+                    {{#err}}<div class="login-form__error-message">Incorrect login details</div>{{/err}}
+                    <form method="POST" action="/login">
+                        <div class="form-group">
+                            <label htmlFor="email" hidden>Email</label>
+                            <input class="login-form__input" name="email" id="email" type="text" placeholder="Email"/>
+                        </div>
+                        <div class="form-group">
+                            <label htmlFor="password" hidden>Password</label>
+                            <input class="login-form__input" name="password" id="password" type="password" placeholder="Password"/>
+                        </div>
+                        <button class="login-form__submit"
+                            type="submit">
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

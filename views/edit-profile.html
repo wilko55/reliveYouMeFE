@@ -1,0 +1,137 @@
+{{< layout}}
+  {{$content}}
+    <style>
+        
+    </style>
+    <div class="profile-grid">
+        <div class="profile-grid__photo">
+            <img class="profile-grid__photo" src="images/profile-pic.png">
+        </div>
+        <form action="edit-profile" method="POST">
+            <div class="profile-grid__info">
+                <h1 class="profile-grid__page-title">{{user.name}}</h1>
+                <button type="submit" class="profile-grid__save-button">Save Profile</button>
+
+                <h2 class="profile-grid__section-title">Your teaching preferences</h2>
+                <div class="edit-profile__grid">
+                    <label class="edit-profile__label" for="job-title">Job title:</label>
+                    <input class="edit-profile__text-input" id="job-title" type="text" name="jobTitle" value="{{user.jobTitle}}">
+
+                    <label class="edit-profile__label" for="qualification">Qualification:</label>
+                    <input class="edit-profile__text-input" id="qualification" type="text" name="qualification" value="{{user.qualification}}">
+    
+                    <label class="edit-profile__label" for="date-qualified">Time teaching:</label>
+                    <input class="edit-profile__text-input" id="date-qualified" type="text" name="dateQualified" value="{{user.dateQualified}}">
+
+                    <label class="edit-profile__label" for="age-range">Preferred age range:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="age-kindergarden" type="checkbox" name="ageRange" value="Kindergarden">
+                        <label for="age-kindergarden">Kindergarden</label>
+                        <input id="age-ks1" type="checkbox" name="ageRange" value="KS1">
+                        <label for="age-ks1">Key stage 1</label>
+                        <input id="age-ks2" type="checkbox" name="ageRange" value="KS2">
+                        <label for="age-ks2">Key stage 2</label>
+                        <input id="age-ks3" type="checkbox" name="ageRange" value="KS3">
+                        <label for="age-ks3">Key stage 3</label>
+                    </div>
+
+                    <label class="edit-profile__label" for="specialist-subjects">Specialist subjects:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="ss-history" type="checkbox" name="specialistSubjects" value="History">
+                        <label for="ss-history">History</label>
+                        <input id="ss-geography" type="checkbox" name="specialistSubjects" value="Geography">
+                        <label for="ss-geography">Geography</label>
+                        <input id="ss-maths" type="checkbox" name="specialistSubjects" value="Maths">
+                        <label for="ss-maths">Maths</label>
+                    </div>
+
+                    <label class="edit-profile__label" for="additional-skills">Additional skills:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="skills-first-aid" type="checkbox" name="additionalSkills" value="First aid">
+                        <label for="skills-first-aid">First aid</label>
+                        <input id="skills-swimming" type="checkbox" name="additionalSkills" value="Swimming">
+                        <label for="skills-swimming">Swimming</label>
+                    </div>
+    
+
+                    <label class="edit-profile__label" for="areas-covered">Areas covered:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="skills-christchurch-city" type="checkbox" name="areasCovered" value="Christchurch City">
+                        <label for="skills-christchurch-city">Christchurch City</label>
+                        <input id="skills-rolaston" type="checkbox" name="areasCovered" value="Rolaston">
+                        <label for="skills-rolaston">Rollaston</label>
+                    </div>
+                </div>
+
+                <h2 class="profile-grid__section-title">About you</h2>
+                <div class="edit-profile__grid">
+
+                    <label class="edit-profile__label" for="phone">Phone number:</label>
+                    <input class="edit-profile__text-input" id="phone" type="text" name="phoneNumber" value="{{user.phoneNumber}}">
+
+                    <label class="edit-profile__label" for="email">Email:</label>
+                    <input class="edit-profile__text-input" id="email" type="email" name="email" value="{{user.email}}">
+
+                    <label class="edit-profile__label" for="line1">Address line 1:</label>
+                    <input class="edit-profile__text-input" id="line1" type="text" name="line1" value="{{user.address.line1}}">
+                    <label class="edit-profile__label" for="line2">Address line 2:</label>
+                    <input class="edit-profile__text-input" id="line2" type="text" name="line2" value="{{user.address.line2}}">
+                    <label class="edit-profile__label" for="line3">Address line 3:</label>
+                    <input class="edit-profile__text-input" id="line3" type="text" name="line3" value="{{user.address.line3}}">
+                    <label class="edit-profile__label" for="postcode">Postcode:</label>
+                    <input class="edit-profile__text-input" id="postcode" type="text" name="postcode">
+
+                    <label class="edit-profile__label" for="about">About:</label>
+                    <textarea class="edit-profile__text-area" id="about" type="textarea" name="about">{{user.about}}</textarea>
+                </div>
+
+                <h2 class="profile-grid__section-title">Your teaching experience</h2>
+                <div class="edit-profile__grid">
+
+                    {{#user.experience}}
+                        <label class="edit-profile__label" for="exp-school">School:</label>
+                        <input class="edit-profile__text-input" id="exp-school" type="text" name="exp-school-1" value="{{school}}">
+
+                        <label class="edit-profile__label" for="exp-role">Role:</label>
+                        <input class="edit-profile__text-input" id="exp-role" type="text" name="exp-role-1" value="{{role}}">
+
+                        <label class="edit-profile__label" for="exp-line1">Address line 1:</label>
+                        <input class="edit-profile__text-input" id="exp-line1" type="text" name="exp-line1-1" value="{{address.line1}}">
+                        <label class="edit-profile__label" for="exp-line2">Address line 2:</label>
+                        <input class="edit-profile__text-input" id="exp-line2" type="text" name="exp-line2-1" value="{{address.line2}}">
+                        <label class="edit-profile__label" for="exp-line3">Address line 3:</label>
+                        <input class="edit-profile__text-input" id="exp-line3" type="text" name="exp-line3-1" value="{{address.line3}}">
+                        <label class="edit-profile__label" for="exp-postcode">Postcode:</label>
+                        <input class="edit-profile__text-input" id="exp-postcode" type="text" name="exp-postcode-1" value="{{address.postcode}}">
+
+                        <label class="edit-profile__label" for="exp-startDate">Start date:</label>
+                        <input class="edit-profile__text-input" id="exp-startDate" type="text" name="exp-startDate-1" value="{{startDate}}">
+                        <label class="edit-profile__label" for="exp-endDate">End date:</label>
+                        <input class="edit-profile__text-input" id="exp-endDate" type="text" name="exp-endDate-1" value="{{endDate}}">
+                    {{/user.experience}}
+
+                </div>
+            </div>
+        </form>
+        <script>
+            function checkBoxes(str) {
+                var arr = str.split(',');
+                arr.forEach(function(el) {
+                    var node = document.querySelectorAll('input[value="' + el + '"]');
+                    if (node && node[0]) {
+                        node[0].checked = true
+                    }
+                    // document.querySelectorAll('input[value="' + el + '"]')[0].checked = true
+                })
+            }
+
+            checkBoxes("{{user.ageRange}}");
+            checkBoxes("{{user.specialistSubjects}}");
+            checkBoxes("{{user.additionalSkills}}");
+            checkBoxes("{{user.areasCovered}}");
+            
+        </script>
+    </div>
+  {{/content}}
+{{/layout}}
+  

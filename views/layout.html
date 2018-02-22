@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <title>{{ title }}</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+     <body>
+    <div class="nav-bar">
+      <div class="mobile-menu-icon">
+        <i id="mobile-toggle" class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+      {{#user.email}}
+        <div class="nav-bar__menu-item--right" id="user-menu">
+          {{user.email}} <i class="fa fa-caret-down" aria-hidden="true"></i>
+          <div class="user-menu">
+            <ul class="updated-menu">
+              <a href="account-settings"><li><span class="sidebar-menu-link">Account settings</span></li></a>
+              <a href="update-password"><li><span class="sidebar-menu-link">Update password</span></li></a>
+              <a href="logout"><li><span class="sidebar-menu-link">Logout</span></li></a>
+            </ul>
+          </div>
+        </div>
+      {{/user.email}}
+    </div>
+    <div class="main-wrapper">
+      <div class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <a href="/">
+            <span id="sidebar-logo" style="font-weight: 800; font-size: 1.5em">Relieve You Me</span>
+            <!-- <img id="sidebar-logo" src="/images/logo.png"> -->
+          </a>
+          <ul class="updated-menu sidebar-menu">
+            {{#user.email}}
+            <a href="/profile"><li><span class="sidebar-menu-link">Profile</span></li></a>
+            <a href="/calendar"><li><span class="sidebar-menu-link">Calendar</span></li></a>
+            {{/user.email}}
+            {{^user.email}}
+            <a href="/login"><li><span class="sidebar-menu-link">Login</span></li></a>
+            {{/user.email}}
+            <a href="/help"><li><span class="sidebar-menu-link">Help</span></li></a>
+            {{#isAdmin}}
+            <a href="/admin"><li><span class="sidebar-menu-link">Admin</span></li></a>
+            {{/isAdmin}}
+          </ul>
+        </div>
+        <div class="new-footer">
+          <div class="footer-links">
+            <ul class="updated-menu horizontal-menu">
+              <li><a href="dpp" target="_blank">Privacy policy</a></li>
+              <li><a href="mailto:hello@mentormatch.org.uk">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        {{$content}}
+        {{/content}}
+      </div>
+    </div>
+    <script>
+      function toggle(node) {
+        if (node.style.display && node.style.display === 'block') {
+          node.style.display = 'none';
+        } else {
+          node.style.display = 'block';
+        }
+      }
+
+      document.getElementById('mobile-toggle').onclick = function() {
+        toggle(document.getElementsByClassName('sidebar-wrapper')[0]);
+      }
+
+      document.getElementById('user-menu').onclick = function() {
+        toggle(document.getElementsByClassName('user-menu')[0]);
+      }
+      </script>
+  </body>
+</html>
