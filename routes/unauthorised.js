@@ -20,6 +20,11 @@ module.exports = function (app) {
     res.render('login');
   });
 
+  app.get('/logout', (req, res) => {
+    res.clearCookie('auth');
+    res.redirect('/');
+  });
+
   app.post("/login", (req, res) => {
     axios.post(`${config.backendUrl}/login`, { email: req.body.email, password: req.body.password })
     .then((data) => {
@@ -56,12 +61,14 @@ module.exports = function (app) {
   });
 
   app.post('/signup-teacher-2', (req, res) => {
+    console.log('singin route', req.body)
     axios.post(`${config.backendUrl}/signup/teacher`, {
       name: `${req.body['first-name']} ${req.body['last-name']}`,
       regNumber: req.body['reg-number'],
       email: req.body.email,
       password: req.body.password })
     .then((data) => {
+      console.log('signed up 2', data)
       res.cookie('auth', data.data.token);
       res.redirect('/profile');
     })
