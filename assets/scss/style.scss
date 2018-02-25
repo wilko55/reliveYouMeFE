@@ -66,16 +66,6 @@ body {
     }
 }
 
-@include screen-s {
-  .header-text {
-    padding: 5em 0 0 0;
-    .button {
-      margin: 1em 0em;
-    }
-  }
-}
-
-
 .white-section {
     min-height: 100vh; width: 100%;
 }
@@ -176,7 +166,7 @@ body {
   .mobile-menu-icon {
     display: inline-block;
     font-size: 1.5em;
-    margin: 0.3em 0.3em 0 0;
+    margin: 0.3em 0 0 0.3em;
   }
 }
 @media (min-width:670px){
@@ -377,3 +367,18 @@ strong {
   font-size: 1.2em;
 }
 
+
+
+
+@include screen-s {
+  .main-content {
+    padding-right: 0;
+  }
+
+  .header-text {
+    padding: 5em 0 0 0;
+    .button {
+      margin: 1em 0em;
+    }
+  }
+}

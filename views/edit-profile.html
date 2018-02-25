@@ -7,11 +7,11 @@
         <div class="profile-grid__photo">
             <img class="profile-grid__photo-photo" src="images/profile-pic.png">
         </div>
-        <form action="edit-profile" method="POST">
-            <div class="profile-grid__info">
-                <h1 class="profile-grid__page-title">{{user.name}}</h1>
-                <button type="submit" class="profile-grid__save-button">Save Profile</button>
-
+        <div class="profile-grid__name">
+            <h1 class="profile-grid__page-title">{{user.name}}</h1>
+            <button form="edit-profile-form" type="submit" class="profile-grid__save-button">Save Profile</button>
+        </div>
+        <form id="edit-profile-form" action="edit-profile" method="POST" class="profile-grid__info">
                 <h2 class="profile-grid__section-title">Your teaching preferences</h2>
                 <div class="edit-profile__grid">
                     <label class="edit-profile__label" for="job-title">Job title:</label>
@@ -111,7 +111,6 @@
                     {{/user.experience}}
 
                 </div>
-            </div>
         </form>
         <script>
             function checkBoxes(str) {

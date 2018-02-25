@@ -216,6 +216,32 @@
       padding: 0.1em 0.4em;
     }
 
+    .edit-profile__grid {
+      grid-auto-rows: minmax(2em, auto);
+      grid-row-gap: 1em;
+    }
 
+    .profile-grid__save-button {
+      padding: 0 2em;
+    }
 
+    .edit-profile__label {
+      font-size: 0.8em;
+      padding-top: 0.2em;
+    }
+
+    .edit-profile__checkbox-grid {
+      display: grid;
+      grid-auto-rows: minmax(2em, auto);
+      grid-template-columns: 1fr 7fr;
+      font-size: 0.8em;
+    }
+
+    .edit-profile__text-input {
+      font-size: 0.8em;
+    }
+
+    .edit-profile__text-area {
+      font-size: 0.8em;
+    }
   }

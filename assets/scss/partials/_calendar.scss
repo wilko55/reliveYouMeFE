@@ -1,3 +1,5 @@
+@import '_mixins';
+
 .calendar {
     display: grid;
     grid-gap: 10px;
@@ -111,4 +113,39 @@
     padding: 0.5em;
     border-radius: 5px;
     font-weight: 500;
+  }
+
+
+
+  @include screen-s {
+    .calendar {
+      grid-template-columns: none;
+      grid-template-rows: none;
+    }
+  
+    .calendar__day--placeholder {
+      display: none;
+    }
+
+    .calendar-header {
+      display: none;
+    }
+
+    .profile-grid__edit-button--calendar {
+      float: none;
+      margin-bottom: 0.5em;
+    }
+
+    .calendar__day {
+      height: 5em;
+    }
+
+    .calendar__day--today {
+      height: 5em;
+    }
+
+    .calendar__key {
+      padding: 0.1em;
+      margin: 0.2em;
+    }
   }

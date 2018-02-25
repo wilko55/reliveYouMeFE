@@ -20,6 +20,7 @@ module.exports = {
   },
   updateProfile: (req, res) => {
     const data = req.body;
+    console.log('>>>>data!', data)
 
     const updatedData = {
       jobTitle: data.jobTitle,
@@ -60,6 +61,7 @@ module.exports = {
         res.redirect('/profile');
       })
       .catch((err) => {
+        console.log("err", err)
         res.render('edit-profile', { user: req.user, data: req.body });
       });
   },
