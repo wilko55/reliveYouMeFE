@@ -70,5 +70,19 @@ module.exports = {
     .catch((err) => {
       console.log(err);
     });
+  },
+  createEventGet: (req, res) => {
+    res.render('create-event');
+  },
+  createEventPost: (req, res) => {
+    axios.post(`${config.backendUrl}/event/create/`, { eventData: req.body }, { headers: {
+      Authorization: `JWT ${req.cookies.auth}` } })
+    .then(() => {
+      res.render('profile');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.render('create-event', err);
+    });
   }
 };

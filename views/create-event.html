@@ -1,0 +1,65 @@
+{{< layout}}
+  {{$content}}
+    <style>
+        
+    </style>
+    <div class="">
+        <div class="">
+            <h1>Create event</h1>
+        </div>
+        <form id="create-event-form" action="create-event" method="POST">
+                <h2 class="profile-grid__section-title">Your teaching preferences</h2>
+                <div class="edit-profile__grid">
+                    <label class="edit-profile__label" for="time">Age range:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="time-full" type="checkbox" name="time" value="full">
+                        <label for="time-full">All day</label>
+                        <input id="time-morning" type="checkbox" name="time" value="morning">
+                        <label for="time-morning">Morning</label>
+                        <input id="time-afternoon" type="checkbox" name="time" value="afternoon">
+                        <label for="time-afternoon">Afternoon</label>
+                    </div>
+
+                    <label class="edit-profile__label" for="time">Date:</label>
+                        <div class="edit-profile__checkbox-grid">
+                                <label for="date" hidden>Date</label>
+                                <input id="date" type="input" name="date" placeholder="DD-MM-YYYY">
+                        </div>
+
+                    <label class="edit-profile__label" for="age-range">Age range:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="age-kindergarden" type="checkbox" name="ageRange" value="Kindergarden">
+                        <label for="age-kindergarden">Kindergarden</label>
+                        <input id="age-ks1" type="checkbox" name="ageRange" value="KS1">
+                        <label for="age-ks1">Key stage 1</label>
+                        <input id="age-ks2" type="checkbox" name="ageRange" value="KS2">
+                        <label for="age-ks2">Key stage 2</label>
+                        <input id="age-ks3" type="checkbox" name="ageRange" value="KS3">
+                        <label for="age-ks3">Key stage 3</label>
+                    </div>
+
+                    <label class="edit-profile__label" for="specialist-subjects">Subject required:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="ss-history" type="checkbox" name="specialistSubjects" value="History">
+                        <label for="ss-history">History</label>
+                        <input id="ss-geography" type="checkbox" name="specialistSubjects" value="Geography">
+                        <label for="ss-geography">Geography</label>
+                        <input id="ss-maths" type="checkbox" name="specialistSubjects" value="Maths">
+                        <label for="ss-maths">Maths</label>
+                    </div>
+
+                    <label class="edit-profile__label" for="additional-skills">Additional skills required:</label>
+                    <div class="edit-profile__checkbox-grid">
+                        <input id="skills-first-aid" type="checkbox" name="additionalSkills" value="First aid">
+                        <label for="skills-first-aid">First aid</label>
+                        <input id="skills-swimming" type="checkbox" name="additionalSkills" value="Swimming">
+                        <label for="skills-swimming">Swimming</label>
+                    </div>
+
+            <button form="create-event-form" type="submit" class="profile-grid__save-button">Find a reliever</button>
+
+        </form>
+    </div>
+  {{/content}}
+{{/layout}}
+  
