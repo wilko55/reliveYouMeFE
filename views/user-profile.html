@@ -5,16 +5,20 @@
     </style>
     <div class="profile-grid">
         <div class="profile-grid__photo">
-            <img class="profile-grid__photo" src="images/profile-pic.png">
+            <img class="profile-grid__photo-photo" src="images/profile-pic.png">
+        </div>
+        <div class="profile-grid__name">
+            <h1 class="profile-grid__page-title">{{user.name}}</h1>
+            <a href="/edit-profile"><button class="profile-grid__edit-button">Edit Profile</button></a>
+
         </div>
         <div class="profile-grid__info">
-            <h1 class="profile-grid__page-title">{{user.name}}</h1>
             <!-- <span class="info__location">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 Christchurch
-            </span> -->
-            <a href="/edit-profile"><button class="profile-grid__edit-button">Edit Profile</button></a>
+            </span> -->             
             <div class="profile-grid__job-title">{{user.jobTitle}}</div>
+
             <div class="details-grid">
                     <div class="details-grid__label">Time teaching:</div>
                     <div class="details-grid__value">{{user.dateQualified}}</div>

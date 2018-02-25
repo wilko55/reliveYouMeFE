@@ -19,22 +19,22 @@ app.use(helmet());
 const ninetyDaysInMilliseconds = 7776000000;
 app.use(helmet.hsts({ maxAge: ninetyDaysInMilliseconds, force: true }));
 app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
-app.use(helmet.contentSecurityPolicy({
-  // Specify directives as normal.
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'http://www.google-analytics.com/', 'http://ajax.googleapis.com/', 'https://maps.googleapis.com/', 'https://unpkg.com/axios/dist/axios.min.js'],
-    styleSrc: ["'self'", "'unsafe-inline'", 'https://maxcdn.bootstrapcdn.com/'],
-    imgSrc: ["'self'", 'http://www.google-analytics.com/', 'https://csi.gstatic.com', 'https://maps.gstatic.com'],
-    frameSrc: ["'none'"],
-    fontSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/'],
-    objectSrc: ["'none'"]
-  },
-  reportOnly: false,
-  setAllHeaders: true,
-  disableAndroid: false,
-  browserSniff: true
-}));
+// app.use(helmet.contentSecurityPolicy({
+//   // Specify directives as normal.
+//   directives: {
+//     defaultSrc: ["'self'"],
+//     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'http://www.google-analytics.com/', 'http://ajax.googleapis.com/', 'https://maps.googleapis.com/', 'https://unpkg.com/axios/dist/axios.min.js'],
+//     styleSrc: ["'self'", "'unsafe-inline'", 'https://maxcdn.bootstrapcdn.com/'],
+//     imgSrc: ["'self'", 'http://www.google-analytics.com/', 'https://csi.gstatic.com', 'https://maps.gstatic.com'],
+//     frameSrc: ["'none'"],
+//     fontSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/'],
+//     objectSrc: ["'none'"]
+//   },
+//   reportOnly: false,
+//   setAllHeaders: true,
+//   disableAndroid: false,
+//   browserSniff: true
+// }));
 app.use(helmet.noCache());
 app.disable('view cache');
 

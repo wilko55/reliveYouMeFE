@@ -1,10 +1,15 @@
+@import '_mixins';
+
 .profile-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 4fr;
     grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(2em, auto);
     display: grid;
     padding: 0 2em;
   }
+
+  
+  
   .profile-grid__edit-button {
     float: right;
     padding: 1em 2em;
@@ -39,32 +44,45 @@
   }
   .profile-grid__photo {
     grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  .profile-grid__name {
+    grid-column: 2 / 3;
     grid-row: 1;
   }
   .profile-grid__info {
-    grid-column: 2 / 5;
-    grid-row: 1;
+    grid-column: 2 / 3;
+    grid-row: 2;
   }
   .profile-grid__work {
     grid-column: 1 / 2;
-    grid-row: 2 / 4;
+    grid-row: 3 / 4;
   }
   .profile-grid__about {
-    grid-column: 2 / 4;
-    grid-row: 2;
+    grid-column: 2 / 3;
+    grid-row: 3;
   }
   .profile-grid__contact {
-    grid-column: 2 / 4;
-    grid-row: 3;
+    grid-column: 2 / 3;
+    grid-row: 4;
   }
   .profile-grid__section-title {
     font-size: 1.2em;
   }
-  .profile-grid__photo { 
-    /* justify-self: center; */
+  .profile-grid__photo-photo { 
+    padding: 1em 0 0 1em; 
     height: 250px;
     margin-top: 0.5em;
   }
+
+  @include screen-s {
+    .profile-grid__photo-photo {
+      padding: 0;
+      height: 100px;
+      margin-top: 0.5em;
+    }
+  }
+
   .experience__container {
     margin-bottom: 0.5em;
   }
@@ -91,7 +109,7 @@
     margin-bottom: 0.5em;
   }
   .details-grid {
-    grid-template-columns: 10em 40em;
+    grid-template-columns: 2fr 4fr;
     grid-gap: 10px;
     grid-auto-rows: minmax(2em, auto);
     display: grid;
@@ -138,7 +156,7 @@
 
 
   .edit-profile__grid {
-    grid-template-columns: 15em 40em;
+    grid-template-columns: 1fr 3fr;
     grid-gap: 5px;
     grid-auto-rows: minmax(3em, auto);
     display: grid;
@@ -158,4 +176,46 @@
   .edit-profile__label {
     font-size: 1.4em;
     margin-right: 0.5em;
+  }
+
+
+
+
+
+
+  @include screen-s {
+    .profile-grid {
+      grid-template-columns: 1fr 2fr;
+    }
+    .profile-grid__photo {
+      grid-column: 1 / 2; 
+    }
+    .profile-grid__name {
+      grid-column: 2 / 3;
+    }
+    .profile-grid__info {
+      grid-column: 1 / 3;
+      grid-row: 2;
+    }
+    .profile-grid__about {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+    .profile-grid__contact {
+      grid-column: 1 / 3;
+      grid-row: 4;
+    }
+    .profile-grid__work {
+      grid-column: 1 / 3;
+      grid-row: 5;
+    }
+    .profile-grid__edit-button {
+      padding: 0.2em 1.5em;
+    }
+    .details-grid__highlight-box {
+      padding: 0.1em 0.4em;
+    }
+
+
+
   }

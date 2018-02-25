@@ -1,0 +1,17 @@
+@mixin screen-l {
+    @media (min-width: 50em) {
+      @content;
+    }
+  }
+
+@mixin screen-m {
+    @media (min-width: 30em) and (max-width: 50em) {
+        @content;
+    }
+}
+
+@mixin screen-s {
+    @media (max-width: 30em) {
+        @content;
+    }
+}
