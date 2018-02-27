@@ -10,4 +10,5 @@ module.exports = function (app) {
   app.get('/event/:eventId', middleware.isAuthenticated, calendarController.getEvent);
   app.get('/create-event', middleware.isAuthenticated, calendarController.createEventGet);
   app.post('/create-event', middleware.isAuthenticated, calendarController.createEventPost);
+  app.get('/event-matches/:eventId', middleware.isAuthenticated, calendarController.eventMatches);
 };

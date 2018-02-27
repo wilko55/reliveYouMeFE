@@ -20,7 +20,6 @@ module.exports = {
   },
   updateProfile: (req, res) => {
     const data = req.body;
-    console.log('>>>>data!', data)
 
     const updatedData = {
       jobTitle: data.jobTitle,

@@ -34,6 +34,7 @@
     font-weight: 600;
     color: $white;
     border: $strong-red;
+    cursor: pointer;
   }
   .profile-grid__page-title {
     margin-top: 0em;
@@ -168,6 +169,14 @@
     max-height: 1.4em;
   }
 
+  .edit-profile__text-input--date {
+    max-width: 2em;
+  }
+
+  .edit-profile__text-input--date-year {
+    max-width: 3em;
+  }
+
   .edit-profile__text-area {
     font-size: 1.2em;
     min-height: 10em;
@@ -239,6 +248,7 @@
 
     .edit-profile__text-input {
       font-size: 0.8em;
+      max-width: 100%;
     }
 
     .edit-profile__text-area {

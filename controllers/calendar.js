@@ -72,17 +72,42 @@ module.exports = {
     });
   },
   createEventGet: (req, res) => {
-    res.render('create-event');
+    // validate event details
+
+    res.render('create-event', { user: req.user });
   },
   createEventPost: (req, res) => {
-    axios.post(`${config.backendUrl}/event/create/`, { eventData: req.body }, { headers: {
+    const eventData = req.body;
+
+    axios.post(`${config.backendUrl}/event/create/`, { eventData }, { headers: {
       Authorization: `JWT ${req.cookies.auth}` } })
-    .then(() => {
-      res.render('profile');
+    .then((event) => {
+      axios.get(`${config.backendUrl}/event/matches/${event.data.eventId}`, { headers: {
+        Authorization: `JWT ${req.cookies.auth}` } })
+      .then((results) => {
+        res.render('reliever-results', { results: results.data.matches });
+      })
+      .catch((err) => {
+        console.log('err', err);
+        res.redirect(500, '/profile');
+      });
     })
     .catch((err) => {
       console.log(err);
       res.render('create-event', err);
+    });
+  },
+  eventMatches: (req, res) => {
+    const eventId = req.params.eventId;
+
+    axios.get(`${config.backendUrl}/event/matches/${eventId}`, { headers: {
+      Authorization: `JWT ${req.cookies.auth}` } })
+    .then((results) => {
+      res.render('reliever-results', { results: results.data.matches, user: req.user });
+    })
+    .catch((err) => {
+      console.log('err', err);
+      res.redirect(500, '/profile');
     });
   }
 };

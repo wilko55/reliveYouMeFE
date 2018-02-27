@@ -14,6 +14,7 @@ $light-blue: #66B1D1;;
 @import 'partials/_calendar';
 @import 'partials/_event';
 @import 'partials/_mixins';
+@import 'partials/_results';
 
 html {
   -ms-text-size-adjust: 100%;
@@ -183,7 +184,7 @@ body {
 }
 .main-content {
   max-width: 95%;
-  padding: 4em 5em 0 0;
+  padding: 2em 2em 0 2em;
   margin: 0 auto;
 }
 

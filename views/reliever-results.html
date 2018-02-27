@@ -1,0 +1,39 @@
+{{< layout}}
+  {{$content}}
+    <h1>Reliever matches</h1>
+    <div>
+      <button class="profile-grid__edit-button">Select all</button>
+    </div>
+    <div class="reliever-results">
+      <div class="results-grid">
+        {{#results}}
+          <div class="result-card">
+            <div class="result-card__title">
+                {{name}}
+            </div>
+            <div class="result-card__photo-container">
+              <img class="result-card__photo" src="/images/profile-pic.png">
+            </div>
+            <div class="result-card__info">
+              <ul>
+                  <li>Teaching for: {{dateQualified}}</li>
+                  <li>Qualification: {{qualification}}</li>
+                  <li>{{#specialistSubjects}}
+                      <span class="details-grid__highlight-box details-grid__highlight-box--red">{{.}}</span>
+                  {{/specialistSubjects}}
+                </li>
+                <li>
+                    {{#additionalSkills}}
+                    <span class="details-grid__highlight-box details-grid__highlight-box--blue">{{.}}</span>
+                {{/additionalSkills}}
+                </li>
+              </ul>
+              
+            </div>
+          </div>
+        {{/results}}
+      </div>
+      <button class="profile-grid__save-button">Contact</button>
+    </div>
+  {{/content}}
+{{/layout}}
